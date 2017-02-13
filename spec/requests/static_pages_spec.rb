@@ -3,27 +3,45 @@ require 'spec_helper'
 describe "StaticPages" do
   subject {page}
 	let (:titule) { "Страница" }
+  shared_examples_for "проверяем все страницы" do
+    it {should have_selector('h1',  text: heading)}
+    it {click_link(link)}
+    it {should have_title(full_title(page_title))}
+  end
 
   describe "Home page" do
     before {visit root_path}
-    it {should have_content('Sample App')}
-    it {should have_title("#{titule}")}
+    let(:heading) {'Sample App'}
+    let(:link) {"Домашняя"}
+    let(:page_title) {'Домашняя'}
+
+    it_should_behave_like "проверяем все страницы"
   end
 
   describe "Help page" do
     before {visit help_path}
-  	it {should have_content('Помощь')}
-  	it {have_title("#{titule} Помощь")}
+  	let(:heading) {'Помощь'}
+    let(:link) {"Домашняя"}
+    let(:page_title) {'Помощь'}
+
+    it_should_behave_like "проверяем все страницы"
   end
 
   describe "Страница 'О нас'" do
     before {visit about_path}
-  	it {have_content('О нас')}
-  	it {have_title("#{titule} О нас")}
+  	let(:heading) {'О нас'}
+    let(:link) {"Домашняя"}
+    let(:page_title) {'О нас'}
+
+    it_should_behave_like "проверяем все страницы"
   end
   describe "Страница 'Контакты'" do
     before {visit contact_path}
-  	it {have_content ('Контакты')}
-  	it {have_title("#{titule} Контакты")}
+  	let(:heading) {'Контакты'}
+    let(:link) {"Домашняя"}
+    let(:page_title) {'Контакты'}
+
+    it_should_behave_like "проверяем все страницы"
   end
+
 end
