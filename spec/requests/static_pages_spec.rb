@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "StaticPages" do
+	let (:titule) { "Страница" }
   describe "Home page" do
     it "should have the content 'Simple App'" do
       # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
@@ -9,7 +10,7 @@ describe "StaticPages" do
     end
     it "Проверяем динамический заголовок Домашняя" do
   		visit '/static_pages/home'
-  		expect(page).to have_title('Домашняя')
+  		expect(page).to have_title("#{titule}")
   	end 
   end
 
@@ -20,7 +21,7 @@ describe "StaticPages" do
   	end
   	it "Проверяем динамический заголовок Помощь" do
   		visit '/static_pages/help'
-  		expect(page).to have_title('Помощь')
+  		expect(page).to have_title("#{titule} Помощь")
   	end 
   end
 
@@ -31,7 +32,17 @@ describe "StaticPages" do
   	end
   	it "Проверяем динамический заголовок О нас" do
   		visit '/static_pages/about'
-  		expect(page).to have_title('О нас')
+  		expect(page).to have_title("#{titule} О нас")
   	end 
+  end
+  describe "Страница 'Контакты'" do
+  	it "Есть ли страница 'Контакты'" do
+  		visit '/static_pages/contact'
+  		expect(page).to have_content ('Контакты')
+  	end
+  	it "Проверяем динамический заголовок 'Контакты'" do
+  		visit '/static_pages/contact'
+  		expect(page).to have_title("#{titule} Контакты")
+  	end
   end
 end
