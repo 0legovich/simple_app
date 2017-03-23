@@ -71,12 +71,22 @@ describe User do
       let(:user_for_invalid_password) { found_user.authenticate("invalid") }
 
       it { should_not eq user_for_invalid_password }
-      specify { expect(user_for_invalid_password).to be_false }
+      specify { expect(user_for_invalid_password).to be_falsey }
     end
   end
 
   describe "длина пароля больше 6" do
     before{@user.password = @user.password_confirmation = "a"*5}
     it {should be_invalid}
+  end
+
+  describe "пароль из символов нижнего регистра" do
+    let(:mix_email) {"Lol@r.Ru"}
+
+    it "должен сохранить с символами нижнего регистра" do
+      @user.email = mix_email
+      @user.save
+      expect(@user.reload.email).to eq mix_email.downcase
+    end
   end
 end

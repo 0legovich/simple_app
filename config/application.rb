@@ -1,4 +1,10 @@
 require File.expand_path('../boot', __FILE__)
+require 'russian'
+
+
+#Локализация (от 22.03.2017)
+I18n.default_locale = :ru
+
 
 # Pick the frameworks you want:
 require "active_record/railtie"

@@ -5,17 +5,22 @@ ruby '2.0.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'
 gem 'pg', '0.15.1'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
+gem 'russian', '~> 0.6.0'
+gem 'i18n'
 
 # Use sqlite3 as the database for Active Record
 group :development, :test do
 	gem 'rspec-rails'
 	#gem 'guard-rspec', '2.5.0'
 	gem 'guard-rspec'
+
+
 end
 
 group :test do
+	gem 'factory_girl_rails', '4.2.1'
 	gem 'selenium-webdriver', '2.35.1'
 	gem 'capybara', '2.2.0'
 	gem 'libnotify', '0.8.0'
