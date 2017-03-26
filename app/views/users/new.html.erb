@@ -11,16 +11,16 @@
 
 			<%= render 'shared/error_messages'%>
 
-			<%= f.label :name %>
+			<%= f.label "Имя" %>
 			<%=f.text_field :name %>
 
-			<%= f.label :email %>
+			<%= f.label "Email" %>
 			<%= f.text_field :email %>
 
-			<%= f.label :password %>
+			<%= f.label "Пароль" %>
 			<%= f.password_field :password %>
 
-			<%= f.label :password_confirmation %>
+			<%= f.label "Подтверждение пароля" %>
 			<%= f.password_field :password_confirmation%>
 
 			<%= f.submit "Создать аккаунт", class: "btn btn-large btn-primary" %>
