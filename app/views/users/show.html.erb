@@ -3,10 +3,22 @@
 	<aside class="span4">
 		<section>
 			<h1>
-				<%= gravatar_for @user%>
+				<%= gravatar_for @user, size: 40%>
 				<%= @user.name %>
 			</h1>
 		</section>
+		<%= @user.name %>, <%= @user.email %>
 	</aside>
+	<% if @user.microposts.any? %>
+		<div class="micropost_container">
+			<h3><%= @user.microposts.count%> <%= Russian.p(@user.microposts.count, "Пост.", "Поста.", "Постов.") %></h3>
+
+			<%= will_paginate @microposts %>
+				<ol class="microposts">
+					<%= render @microposts %>
+				</ol>
+			<%= will_paginate @microposts %>
+
+		</div>
+	<% end %>
 </div>
-<%= @user.name %>, <%= @user.email %>

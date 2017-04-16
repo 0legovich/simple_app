@@ -1,0 +1,10 @@
+<%= link_to gravatar_for(current_user, size: 52), current_user %>
+<h1>
+	<%= current_user.name %>
+</h1>
+<span>
+	<%= link_to "Посмотреть мой профиль", current_user %>
+</span>
+<span>
+	<%= current_user.microposts.count %><%= Russian.p(current_user.microposts.count, "Пост.", "Поста.", "Постов.") %>
+</span>

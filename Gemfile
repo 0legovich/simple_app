@@ -10,8 +10,8 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'russian', '~> 0.6.0'
 gem 'i18n'
 gem 'faker', '1.1.2'
-gem 'will_paginate', '3.0.4'
-gem 'bootstrap-will_paginate', '0.0.9'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 
 # Use sqlite3 as the database for Active Record
